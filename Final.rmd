@@ -1,6 +1,6 @@
 ---
 title: "Covid91 vaccine study Final2023"
-author: "Put your name here!"
+author: "Alondra Cruz"
 output: 
   html_document:
     number_sections: true
@@ -25,16 +25,119 @@ mutate(across(where(is.character), as.factor))
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
 ## Males
+## Methods
+```{r}
+maleData = filter (FinalData, sex == "M")
+```
+
+## Results
+## Descriptive Results
+### Graphical Descriptive Results
+```{r}
+barchartGC(~infected+treatment,data=maleData)
+barchartGC(~infected+treatment,data=maleData, type="percent")
+```
+
+### Numerical Descriptive Results
+```{r}
+table1 <- xtabs(~infected + treatment, data=maleData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+## Inferential Results
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
 
 
 ## Females
+## Methods
+## Results
+```{r}
+femaleData = filter(FinalData, sex == "F")
+```
+
+## Descriptive Results
+### Graphical Descriptive Results
+```{r}
+barchartGC(~infected+treatment,data=femaleData)
+barchartGC(~infected+treatment,data=femaleData, type="percent")
+```
+
+### Numerical Descriptive Results
+```{r}
+table1 <- xtabs(~infected + treatment, data=femaleData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+## Infrenital Results
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 
 ## LGBTQ
+## Methods
+## Results
+```{r}
+LGBTQData = filter(FinalData, LGBTQ == "gay")
+```
 
+## Descriptive Results
+### Graphical Descriptive Results
+```{r}
+barchartGC(~infected+treatment,data=LGBTQData)
+```
 
+### Numerical Descriptive Results
+```{r}
+table1 <- xtabs(~infected = treatment, data=LGBTQData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+## Infrenital Results
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 ## Druggies
+## Methods
+## Results
+```{r}
+DruggiesData = filter(FinalData, DrugUser == "yes")
+```
 
+## Descriptive Results
+### Graphical Descriptive Results
+```{r}
+barchartGC(~infected+treatment,data=DruggiesData)
+barchartGC(~infected+treatment,data=DruggiesData, type="percent")
+```
+
+### Numerical Descriptive Results
+```{r}
+table1 <- xtabs(~infected + treatment, data=DruggiesData)
+rowPerc(table1)
+colPerc(table1)
+```
+
+## Infrenital Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 # Overall Results and Conclusions
