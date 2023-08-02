@@ -24,19 +24,34 @@ mutate(across(where(is.character), as.factor))
 
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
+$H_0$: The Covid-19 vaccine (drug) is not effective among the subgroup users.
+
+$H_A$: The Covid-19 vaccine (drug) is effective non subgroup users.
+
 ## Males
+$H_0$: The vaccine is not effective in preventing Covid-19 in males.
+
+$H_A$: The vaccine is effective in preventing Covid-19 in males. 
+
+Data for this study came from a FinalData file provided by the professor. 
+
 ## Methods
+The response method used is Cat~Cat. Data used was based on data from FinalData. We have to subset the data to include males. For graphical displays we are using: bar chart, numerical display and inferential results. 
+
+## Results
 ```{r}
 maleData = filter (FinalData, sex == "M")
 ```
 
-## Results
 ## Descriptive Results
+
 ### Graphical Descriptive Results
 ```{r}
 barchartGC(~infected+treatment,data=maleData)
 barchartGC(~infected+treatment,data=maleData, type="percent")
 ```
+
+The graph shows that among the males who got Covid-19, there was 30% who received the vaccine and 70% who got the placebo. It also shows that there was slight difference in those who received the vaccine and were ok. 
 
 ### Numerical Descriptive Results
 ```{r}
@@ -45,6 +60,8 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
+The table shows that the people who took the vaccine and got Covid-19 there was 2 times the difference. The males who took the placebo had a 70% chance of not being infected and 30% less likely for the people who took the vaccine. Among those who were ok and took the vaccine, there was no difference. 
+
 ## Inferential Results
 ```{r}
 chisq.test(table1)
@@ -52,36 +69,50 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-
+The p-value is 0.0000000000001098 is so small that we failed to reject the null hypothesis. The vaccine is not effective in preventing Covid-19 among males. On the Fisher's Exact Test there is a p-value 0.00000000000004613 meaning there is a difference in getting Covid-19 and being a male. 
 
 
 ## Females
+$H_0$: The vaccine is not effective in preventing Covid-19 in females.
+
+$H_A$: The vaccine is effective in preventing Covid-19 in females. 
+
+The data for this study came from a FinalData file, provided by the professor. 
+
 ## Methods
+
+The response method used is Cat~Cat. Data used was based on data from FinalData. We have to subset the data to include males. For graphical displays we are using: bar chart, numerical display and inferential results. 
+
 ## Results
 ```{r}
 femaleData = filter(FinalData, sex == "F")
 ```
 
 ## Descriptive Results
+
 ### Graphical Descriptive Results
 ```{r}
 barchartGC(~infected+treatment,data=femaleData)
 barchartGC(~infected+treatment,data=femaleData, type="percent")
 ```
 
+The graph shows that there was a difference in those who got Covid-19. There was 40% females who did get the vaccine and 60% females who received the placebo. There was no significant difference in those who were OK that received either the placebo or the vaccine. 
+
 ### Numerical Descriptive Results
 ```{r}
-table1 <- xtabs(~infected + treatment, data=femaleData)
-rowPerc(table1)
-colPerc(table1)
+table2 <- xtabs(~infected + treatment, data=femaleData)
+rowPerc(table2)
+colPerc(table2)
 ```
+Among those who got Covid-19 there was a 20% difference among the females who received the vaccine (40%) and the placebo (60%). There was no difference in people that were OK.
 
 ## Infrenital Results
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
 ```
+
 
 
 ## LGBTQ
@@ -95,20 +126,21 @@ LGBTQData = filter(FinalData, LGBTQ == "gay")
 ### Graphical Descriptive Results
 ```{r}
 barchartGC(~infected+treatment,data=LGBTQData)
+barchartGC(~infected+treatment,data=LGBTQData, type="percent")
 ```
 
 ### Numerical Descriptive Results
 ```{r}
-table1 <- xtabs(~infected = treatment, data=LGBTQData)
-rowPerc(table1)
-colPerc(table1)
+table3 <- xtabs(~infected + treatment, data=LGBTQData)
+rowPerc(table3)
+colPerc(table3)
 ```
 
 ## Infrenital Results
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table3)
+chisqtestGC(table3)
+fisher.test(table3)
 ```
 
 ## Druggies
@@ -127,17 +159,17 @@ barchartGC(~infected+treatment,data=DruggiesData, type="percent")
 
 ### Numerical Descriptive Results
 ```{r}
-table1 <- xtabs(~infected + treatment, data=DruggiesData)
-rowPerc(table1)
-colPerc(table1)
+table4 <- xtabs(~infected + treatment, data=DruggiesData)
+rowPerc(table4)
+colPerc(table4)
 ```
 
 ## Infrenital Results
 
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table4)
+chisqtestGC(table4)
+fisher.test(table4)
 ```
 
 # Overall Results and Conclusions
