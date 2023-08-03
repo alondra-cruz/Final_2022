@@ -51,7 +51,7 @@ barchartGC(~infected+treatment,data=maleData)
 barchartGC(~infected+treatment,data=maleData, type="percent")
 ```
 
-The graph shows that among the males who got Covid-19, there was 30% who received the vaccine and 70% who got the placebo. It also shows that there was slight difference in those who received the vaccine and were ok. 
+The graph shows that among the males who got Covid-19, there was 30% who received the vaccine and 70% who got the placebo. It also shows that there was around a 10% difference in those who were OK, that received both the placebo and the vaccine.  
 
 ### Numerical Descriptive Results
 ```{r}
@@ -113,10 +113,18 @@ chisqtestGC(table2)
 fisher.test(table2)
 ```
 
-
+The p-value from the Chi-squared test is 0.0002732, which is small, therefore the vaccine is not effective in preventing Covid-19. On the Fisher's Exact Test there is a p-value 0.0002162 meaning there is a difference in getting Covid-19 and being a female. We fail to reject the null hypothesis because females can still get Covid-19 with the vaccine or the placebo.
 
 ## LGBTQ
+$H_0$: The vaccine is not effective in preventing Covid-19 in the LGBTQ community 
+
+$H_A$: The vaccine is effective in preventing Covid-19 in the LGBTQ community
+
+The data for this study came from a FinalData file, provided by the professor.
+
 ## Methods
+The response method used is Cat~Cat. Data used was based on data from FinalData. We have to subset the data to include males. For graphical displays we are using: bar chart, numerical display and inferential results. 
+
 ## Results
 ```{r}
 LGBTQData = filter(FinalData, LGBTQ == "gay")
@@ -129,12 +137,15 @@ barchartGC(~infected+treatment,data=LGBTQData)
 barchartGC(~infected+treatment,data=LGBTQData, type="percent")
 ```
 
+This graph shows that the people who got Covid-19, there was 80% of people who were vaccinated and 20% that received the placebo. Among those who were OK there was no significant difference. 
+
 ### Numerical Descriptive Results
 ```{r}
 table3 <- xtabs(~infected + treatment, data=LGBTQData)
 rowPerc(table3)
 colPerc(table3)
 ```
+In this chart it shows that there was a 69% difference in those who got Covid-19. There was 84% of people who recieved the vaccine and 15% of people who got the placebo. For the people who were OK, there was only about a 10% difference. 
 
 ## Infrenital Results
 ```{r}
@@ -143,8 +154,18 @@ chisqtestGC(table3)
 fisher.test(table3)
 ```
 
+The Chi-squared p-value is 0.0000000668, which is too small. Therefore the vaccine is not preventable against Covid-19 among the LGBTQ. In the Fisher's Exact Test the p-value is 0.00000001029 meaning there is a small difference in getting Covid-19 and being in the LGBTQ. We fail to reject the null hypothesis because people in the LGBTQ community can still get Covid-19 with the vaccine or the placebo. 
+
 ## Druggies
+$H_0$: The vaccine is not effective in preventing Covid-19 in drug users.
+
+$H_A$: The vaccine is effective in preventing Covid-19 in drug users.
+
+Data for this study came from a FinalData file provided by the professor. 
+
 ## Methods
+The response method used is Cat~Cat. Data used was based on data from FinalData. We have to subset the data to include males. For graphical displays we are using: bar chart, numerical display and inferential results. 
+
 ## Results
 ```{r}
 DruggiesData = filter(FinalData, DrugUser == "yes")
@@ -157,12 +178,15 @@ barchartGC(~infected+treatment,data=DruggiesData)
 barchartGC(~infected+treatment,data=DruggiesData, type="percent")
 ```
 
+In this graph it shows that the people who got Covid-19, there was 88% of drug users who got the vaccine and 12% of drug users who got the placebo. There was an approximate 10% difference in those who were OK, that received the placebo or the vaccine. 
+
 ### Numerical Descriptive Results
 ```{r}
 table4 <- xtabs(~infected + treatment, data=DruggiesData)
 rowPerc(table4)
 colPerc(table4)
 ```
+In this chart it shows that those who got Covid-19 there was a 77% difference in those who got the vaccine (88%) and the ones who recieved the placebo (12%). The drug users that were OK there was a small difference of 10% among those who got the vaccine and the placebo. 
 
 ## Infrenital Results
 
@@ -172,4 +196,13 @@ chisqtestGC(table4)
 fisher.test(table4)
 ```
 
+The p-value in the Chi-square Test is 0.000000002842 which is too small, therefore the vaccine is not able to prevent Covid-19 among drug users. In the Fisher's Exact Test the p-value is 0.0000000000232 meaning there is a small difference in getting Covid-19 and being a drug user. We fail to reject the null hypothesis because drug users are able to get Covid-19 with or without the vaccine. 
+
 # Overall Results and Conclusions
+In the original question we asked if the vaccine was able to prevent Covid-19 among these subgroups: males, females, LGBTQ and drug users. We have found that the vaccine is ineffective at preventing Covid-19 in those subgroups. 
+
+We asked if the vaccine was effective in preventing Covid-19 
+
+
+
+
