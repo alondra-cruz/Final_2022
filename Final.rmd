@@ -60,7 +60,7 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
-The table shows that the people who took the vaccine and got Covid-19 there was 2 times the difference. The males who took the placebo had a 70% chance of not being infected and 30% less likely for the people who took the vaccine. Among those who were ok and took the vaccine, there was no difference. 
+The table shows that the people who took the vaccine and got Covid-19 there was 2 times the difference. There was 70% males who took the placebo that got Covid-19 and 30% of males who recievied the vaccine that got infected with Covid-19. Among those who were OK and took the vaccine or the placebo, there was no difference. 
 
 ## Inferential Results
 ```{r}
@@ -199,9 +199,9 @@ fisher.test(table4)
 The p-value in the Chi-square Test is 0.000000002842 which is too small, therefore the vaccine is not able to prevent Covid-19 among drug users. In the Fisher's Exact Test the p-value is 0.0000000000232 meaning there is a small difference in getting Covid-19 and being a drug user. We fail to reject the null hypothesis because drug users are able to get Covid-19 with or without the vaccine. 
 
 # Overall Results and Conclusions
-In the original question we asked if the vaccine was able to prevent Covid-19 among these subgroups: males, females, LGBTQ and drug users. We have found that the vaccine is ineffective at preventing Covid-19 in those subgroups. 
+In the original question we asked if the vaccine was able to prevent Covid-19 among these subgroups: males, females, LGBTQ and drug users. We have found that the vaccine is ineffective at preventing Covid-19 in those subgroups, therefore we fail to reject the null hypothesis. 
 
-We asked if the vaccine was effective in preventing Covid-19 
+We inquired as to whether the vaccine was successful in preventing Covid-19 inside the male subgroup. Our results finally led us to conclude that the vaccine is ineffective in preventing Covid-19 among males. For this subgroup, we fail to reject the null hypothesis. Since the vaccine was unable to prevent Covid-19 in the subgroup of females when the identical question was posed, we fail to reject the null hypothesis. The LGBTQ community was also included in the question, and our data indicates that the vaccine did not successfully prevent Covid-19, thus we fail to reject the null hypothesis. The same questions were asked of the drug users as well, and our data indicates that the vaccination did not prevent Covid-19, therefore we fail to reject the null hypothesis.
 
 
 
